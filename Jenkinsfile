@@ -1,9 +1,12 @@
 pipeline {
   agent any
+  environment {
+    VERSION = '2.0'
+  }
   stages {
     stage('code checkout') {
       steps {
-        echo 'code checkout'
+        echo "code checkout for ${VERSION}"
       }
     }
 
@@ -16,7 +19,12 @@ pipeline {
         }
 
         stage('test') {
-          steps {
+          when {
+            expression {
+              BRANCH_NAME = 'master'
+            }
+          }
+          steps 
             echo 'test case execution'
           }
         }

@@ -24,7 +24,7 @@ pipeline {
               BRANCH_NAME = 'master'
             }
           }
-          steps 
+          steps {
             echo 'test case execution'
           }
         }
